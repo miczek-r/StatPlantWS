@@ -15,7 +15,6 @@ IHost host = Host.CreateDefaultBuilder(args)
             BaseAddress = apiUrl,
         };
         httpClient.DefaultRequestHeaders.Add("X-Api-Key", apiKey);
-        ServicePointManager.FindServicePoint(apiUrl).ConnectionLeaseTimeout = 60000;
         services.AddLogging();
         services.AddSingleton<HttpClient>(httpClient);
         services.AddSingleton<ITriggerProcess, TriggerProcess>();
