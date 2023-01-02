@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32505.173
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatPlantWS", "StatPlantWS.csproj", "{1B25ED44-2DFA-44E8-9A66-6ED2F87B6A3B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1B25ED44-2DFA-44E8-9A66-6ED2F87B6A3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B25ED44-2DFA-44E8-9A66-6ED2F87B6A3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B25ED44-2DFA-44E8-9A66-6ED2F87B6A3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B25ED44-2DFA-44E8-9A66-6ED2F87B6A3B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {63C99B65-D43D-46AF-8A5D-5335FBBB94F3}
+	EndGlobalSection
+EndGlobal
