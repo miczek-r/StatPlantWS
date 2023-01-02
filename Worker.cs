@@ -17,7 +17,7 @@ namespace StatPlantWS
         {
             while (!stoppingToken.IsCancellationRequested)
             {
-                _logger.LogInformation("FarmWorker running at: {time}", DateTimeOffset.Now);
+                _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
                 await _triggerProcess.CheckAllTriggers();
             }
         }

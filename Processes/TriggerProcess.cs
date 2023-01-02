@@ -15,7 +15,8 @@ namespace StatPlantWS.Processes
         public TriggerProcess(ILogger<TriggerProcess> logger, HttpClient httpClient)
         {
             _logger = logger;
-            _httpClient = httpClient;   
+            _httpClient = httpClient;
+            _logger.LogInformation($"Calling API {_httpClient.BaseAddress}");
         }
 
         public async Task CheckAllTriggers()
