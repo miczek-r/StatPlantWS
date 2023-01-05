@@ -7,6 +7,7 @@
     <UserSecretsId>dotnet-StatPlantWS-01AD21C0-4C50-4317-A259-A7E2B0B009C1</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>.</DockerfileContext>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
