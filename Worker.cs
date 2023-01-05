@@ -4,15 +4,14 @@ namespace StatPlantWS
 {
     public class Worker : BackgroundService
     {
-        private readonly ITriggerProcess _triggerProcess;
-        private readonly IEventProcess _eventProcess;
+        private HttpClient _httpClient;
         private readonly ILogger<Worker> _logger;
 
-        public Worker(ILogger<Worker> logger, ITriggerProcess triggerProcess, IEventProcess eventProcess)
+        public Worker(ILogger<Worker> logger)
         {
             _logger = logger;
-            _triggerProcess = triggerProcess;
-            _eventProcess = eventProcess;
+            _httpClient = new HttpClient();
+            _httpClient.DefaultRequestHeaders.Add("X-Api-Key", "99b8646d-6502-47bc-b564-7f4df54c6d2e");
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -20,8 +19,25 @@ namespace StatPlantWS
             while (!stoppingToken.IsCancellationRequested)
             {
                 _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
-                await _triggerProcess.CheckAllTriggers();
-                await _triggerProcess.CheckAllTriggers();
+                var result = await _httpClient.PutAsync("http://miczek-r.software.com:8080/api/Event/CheckAllEvents", null);
+                if (result.IsSuccessStatusCode)
+                {
+                _logger.LogInformation("Succesfuly checked events");
+                }
+                else
+                {
+                    _logger.LogError("Error ;(");
+                }
+                result = await _httpClient.PutAsync("http://miczek-r.software.com:8080/api/Trigger/CheckAllTriggers", null);
+                if (result.IsSuccessStatusCode)
+                {
+                _logger.LogInformation("Succesfuly checked triggers");
+                }
+                else
+                {
+                    _logger.LogError("Error ;(");
+                }
+                await Task.Delay(60000, stoppingToken);
             }
         }
 
