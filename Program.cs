@@ -15,10 +15,10 @@ IHost host = Host.CreateDefaultBuilder(args)
             BaseAddress = apiUrl,
         };
         httpClient.DefaultRequestHeaders.Add("X-Api-Key", apiKey);
-        httpClient.Timeout = TimeSpan.FromMinutes(30);
         services.AddLogging();
         services.AddSingleton<HttpClient>(httpClient);
         services.AddSingleton<ITriggerProcess, TriggerProcess>();
+        services.AddSingleton<IEventProcess, EventProcess>();
         services.AddHostedService<Worker>();
 
     })
