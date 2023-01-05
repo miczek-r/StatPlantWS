@@ -19,7 +19,7 @@ namespace StatPlantWS
             while (!stoppingToken.IsCancellationRequested)
             {
                 _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
-                var result = await _httpClient.PutAsync("http://miczek-r.software:8080/api/Event/CheckAllEvents", null);
+                var result = await _httpClient.PutAsync("http://localhost:8080/api/Event/CheckAllEvents", null);
                 if (result.IsSuccessStatusCode)
                 {
                 _logger.LogInformation("Succesfuly checked events");
@@ -28,7 +28,7 @@ namespace StatPlantWS
                 {
                     _logger.LogError("Error ;(");
                 }
-                result = await _httpClient.PutAsync("http://miczek-r.software:8080/api/Trigger/CheckAllTriggers", null);
+                result = await _httpClient.PutAsync("http://localhost:8080/api/Trigger/CheckAllTriggers", null);
                 if (result.IsSuccessStatusCode)
                 {
                 _logger.LogInformation("Succesfuly checked triggers");
